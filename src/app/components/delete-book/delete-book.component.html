@@ -1,0 +1,17 @@
+<div class="delte-book-continaer">
+
+<div class="header">
+  <span class="title">Delete book</span>
+</div>
+
+<div class="content">
+    <span class="title">Are you sure you want to delete {{bookTitle}} by {{bookAuthor}}?</span>
+    <span class="sub-title">This action can't be undone</span>
+</div>
+
+<mat-card-actions class="footer">
+      <button mat-raised-button color="primary" (click)="cancelDelete()">No</button>
+      <button mat-raised-button color="warn" (click)="deleteBook()">Yes</button>
+  </mat-card-actions>
+
+</div>

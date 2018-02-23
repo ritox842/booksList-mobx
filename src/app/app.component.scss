@@ -1,0 +1,33 @@
+.app-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 4vmin;
+  background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+  .book {
+    margin: 1em;
+    flex: 1 1;
+    display: block;
+    animation: bookEnter 1s;
+  }
+  .add-book{
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    width: 6em;
+    height: 6em;
+    cursor: pointer;
+    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+  }
+}
+
+@keyframes bookEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+

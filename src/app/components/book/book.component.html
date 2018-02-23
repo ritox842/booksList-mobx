@@ -1,0 +1,20 @@
+<div
+class="book-container">
+
+  <mat-card
+    [ngStyle] = "{'background-color':'#'+bookBackgroundColor}"
+    class="book-card">
+
+    <mat-card-header class="card-header">
+      <mat-card-title>{{book['title']|bookTitle}}</mat-card-title>
+      <mat-card-subtitle>{{book['author']}}</mat-card-subtitle>
+      <mat-card-subtitle>{{book['date']|date:'short'}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-actions class="card-actions">
+        <button mat-raised-button color="primary" (click)="editBook()">Edit</button>
+        <button mat-raised-button color="warn" (click)="removeBook()">Remove</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

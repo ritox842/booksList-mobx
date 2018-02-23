@@ -1,0 +1,23 @@
+.book-container{
+    display: block;
+    box-shadow: none;
+    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+    transition: box-shadow 3s,transform 3s;
+    &:hover{
+        box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+        transform: translatey(-20px);
+      }
+      .book-card{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;      
+            .card-actions{
+                width: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+        }
+}

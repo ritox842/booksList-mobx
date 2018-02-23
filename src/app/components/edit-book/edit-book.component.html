@@ -1,0 +1,69 @@
+<div class="edit-book-container">
+
+  <div class="header">
+    <span class="title">{{dialogTitle}}</span>
+  </div>
+
+    <form 
+    novalidate
+    [formGroup]='editBookForm'
+    class="edit-bool-form">
+        
+      <mat-form-field class="form-field">
+        <input matInput placeholder="Book title" [(ngModel)]="bookTitle" formControlName = "bookTitleControl"/>
+           
+          <mat-error *ngIf = "editBookForm.controls['bookTitleControl'].errors &&
+                              editBookForm.controls['bookTitleControl'].errors.hasOwnProperty('required')">
+            Title is <strong>required</strong>
+          </mat-error>
+
+          <mat-error *ngIf = "editBookForm.controls['bookTitleControl'].errors &&
+                              editBookForm.controls['bookTitleControl'].errors.hasOwnProperty('uniqueBookTitle')">
+            Title already in use.
+          </mat-error>
+          
+
+      </mat-form-field>
+    
+      <mat-form-field class="form-field">
+            <input matInput placeholder="Book author" [(ngModel)]="bookAuthor" formControlName="bookAuthorControl"/>
+
+              <mat-error *ngIf = "editBookForm.controls['bookAuthorControl'].errors &&
+                                 editBookForm.controls['bookAuthorControl'].errors.hasOwnProperty('required')">
+                Author is <strong>required</strong>
+              </mat-error>
+
+      </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <input matInput [matDatepicker]="datePicket" placeholder="Book date" [(ngModel)]="bookDate" formControlName="bookDateControl"
+            [min]="minDate" [max]="maxDate">
+            
+            <mat-datepicker-toggle matSuffix [for]="datePicket"></mat-datepicker-toggle>
+            <mat-datepicker #datePicket></mat-datepicker>
+
+             <mat-error *ngIf = "editBookForm.controls['bookDateControl'].errors &&
+                                 editBookForm.controls['bookDateControl'].errors.hasOwnProperty('required')">
+                Date is <strong>required</strong>
+              </mat-error>
+
+              <mat-error *ngIf = "editBookForm.controls['bookDateControl'].errors &&
+                                  editBookForm.controls['bookDateControl'].errors.hasOwnProperty('matDatepickerMin')">
+                Invalid date, Must be later then {{minDate | date:'shortDate'}}
+              </mat-error>
+
+              <mat-error *ngIf = "editBookForm.controls['bookDateControl'].errors &&
+                                  editBookForm.controls['bookDateControl'].errors.hasOwnProperty('matDatepickerMax')">
+                Invalid date, Must be earlier then {{maxDate | date:'shortDate'}}
+              </mat-error>
+
+          </mat-form-field>
+      
+      </form>
+
+      <mat-card-actions class="footer">
+        <button mat-raised-button color="warn" (click)="discardChanges()">Discard</button>
+          <button mat-raised-button color="primary" (click)="saveChanges()">{{actionButtonText}}</button>
+      </mat-card-actions>
+
+</div>

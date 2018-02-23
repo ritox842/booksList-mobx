@@ -1,0 +1,18 @@
+<div 
+*mobxAutorun
+class="app-container">
+
+  <app-book
+    *ngFor="let book of booksStore.books;let index=index;"
+    class = "book"
+    [book]="book"
+    [bookIndex]="index"
+    [bookColorArray]="bookColorArray"
+  ></app-book>
+
+   <button
+    class="add-book"
+    (click)="addBook()"
+    mat-fab color="primary">Add book</button>
+
+</div>
