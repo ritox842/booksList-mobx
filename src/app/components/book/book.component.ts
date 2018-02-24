@@ -38,7 +38,7 @@ export class BookComponent implements OnInit, OnDestroy {
    *Open edit book dialog.
    *Pass mendatory data for the edit proccess.
   */
-  private editBook(): void {
+  public editBook(): void {
     this.dialogRef = this.dialog.open(EditBookComponent, {
         width: '25em',
       data: {
@@ -64,7 +64,7 @@ export class BookComponent implements OnInit, OnDestroy {
    *Open remove book dialog.
    Pass mandatory date for the delete proccess.
   */
-  private removeBook(): void {
+  public removeBook(): void {
     this.dialogRef = this.dialog.open(DeleteBookComponent, {
       width: '25em',
     data: {

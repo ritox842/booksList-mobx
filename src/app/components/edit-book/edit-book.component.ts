@@ -46,7 +46,12 @@ export class EditBookComponent implements OnInit {
   */
   private initForm(): void {
     this.editBookForm = this.formBuilder.group({
-      bookTitleControl: [this.bookTitle, Validators.compose([Validators.required, this.formValidetors.uniqueBookTitle()])],
+      bookTitleControl: [this.bookTitle, Validators.compose(
+        [
+          Validators.required,
+           this.formValidetors.uniqueBookTitle(this.bookTitle)
+          ]
+        )],
       bookAuthorControl: [this.bookAuthor, Validators.compose([Validators.required])],
       bookDateControl: [this.bookDate, Validators.compose([Validators.required])]
     });
@@ -56,7 +61,7 @@ export class EditBookComponent implements OnInit {
    * Close this dialog without saving
    * new book data.
   */
-  private discardChanges(): void {
+  public discardChanges(): void {
     this.dialogRef.close();
   }
 
@@ -65,7 +70,7 @@ export class EditBookComponent implements OnInit {
    * Emit new book data to state and close
    * this dialog.
   */
-  private saveChanges(): void {
+  public saveChanges(): void {
     if (!this.editBookForm.valid) {
       return;
     }

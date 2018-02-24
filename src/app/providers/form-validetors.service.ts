@@ -15,7 +15,7 @@ export class FormValidetorsService {
   /**
    * Validate that given book title does not exist
    * in book list state. Book title must be unique.
-   * @param control
+   * @param currentBookName:string
    */
   public uniqueBookTitle(currentBookName: string): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} => {
