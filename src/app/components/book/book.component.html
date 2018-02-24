@@ -8,7 +8,7 @@ class="book-container">
     <mat-card-header class="card-header">
       <mat-card-title>{{book['title']|bookTitle}}</mat-card-title>
       <mat-card-subtitle>{{book['author']}}</mat-card-subtitle>
-      <mat-card-subtitle>{{book['date']|date:'short'}}</mat-card-subtitle>
+      <mat-card-subtitle>{{book['date'] * 1000 |date:'dd/MM/yyyy' : 'en-GB'}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-actions class="card-actions">

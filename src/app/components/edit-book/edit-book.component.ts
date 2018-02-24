@@ -74,7 +74,7 @@ export class EditBookComponent implements OnInit {
     if (!this.editBookForm.valid) {
       return;
     }
-    this.dialogRef.close(new Book(this.bookTitle, this.bookAuthor, this.bookDate.getTime()));
+    this.dialogRef.close(new Book(this.bookTitle, this.bookAuthor, this.bookDate.getTime() / 1000));
   }
 
 }
