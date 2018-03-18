@@ -27,6 +27,12 @@ export class BooksStore {
     return this.booksList;
   }
 
+  /**
+   Fetch book list from remote server.
+   Map response to be with 'book' objects.
+   onSuccess, store data in bookList.
+   onFailure, store an empty list in bookList.
+  **/
   @action
   async fetchBooksList() {
       try {
@@ -51,6 +57,10 @@ export class BooksStore {
       }
   }
 
+  /**
+  Add new book to bookList array.
+  Will add it to the begining of the list.
+  **/
   @action addNewBook(book: Book) {
     if (!book) {
       return;
@@ -58,16 +68,21 @@ export class BooksStore {
     this.booksList.unshift(book);
   }
 
+  /**
+  Update exiting book with new data.
+  overide bookList in given index with  new book data.
+  **/
   @action editBook(bookIndex: number, book: Book) {
-    if (!book || this.booksList.length < bookIndex) {
+    if (!book) {
       return;
     }
     this.booksList[bookIndex] = book;
   }
 
+  /**
+  Delete book by it's index in bookList array.
+  **/
   @action deleteBook(bookIndex: number): void {
-    if (this.booksList.length > bookIndex) {
       this.booksList.splice(bookIndex, 1);
-    }
   }
 }
