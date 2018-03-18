@@ -26,6 +26,11 @@ export class AppComponent implements OnDestroy {
 
   }
 
+  /**
+   Open dialog witch user can add new book.
+   On dialog close event, if needed, add new book
+   data to state.
+  **/
   addBook(): void {
     this.dialogRef = this.dialog.open(EditBookComponent, {
       width: '25em',
